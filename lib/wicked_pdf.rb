@@ -65,7 +65,6 @@ class WickedPdf
 
     def parse_options(options)
       [
-        parse_extra(options),
         parse_header_footer(:header => options.delete(:header),
                             :footer => options.delete(:footer),
                             :layout => options[:layout]),
@@ -73,7 +72,8 @@ class WickedPdf
         parse_outline(options.delete(:outline)),
         parse_margins(options.delete(:margin)),
         parse_others(options),
-        parse_basic_auth(options)
+        parse_basic_auth(options),
+        parse_extra(options)
       ].join(' ')
     end
 
